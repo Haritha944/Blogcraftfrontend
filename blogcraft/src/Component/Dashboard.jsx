@@ -25,7 +25,7 @@ const Dashboard = () => {
   return (
    
    
-    <div className="min-h-screen -mt-8 w-screen bg-gradient-to-br from-blue-900 to-violet-600 overflow-x-hidden">
+    <div className="min-h-screen -mt-8 w-screen bg-gradient-to-t from-blue-400 to-sky-600 overflow-x-hidden">
       
       <Navbar/>
     

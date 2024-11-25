@@ -1,5 +1,5 @@
-import React, { useState }  from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState ,useEffect}  from 'react'
+import { useNavigate,Link } from 'react-router-dom';
 import loginImage from '../Images/Eventpro hub (1).png'
 
 
@@ -9,13 +9,19 @@ const Navbar = () => {
         setDropdownOpen(!dropdownOpen);
     }
     const navigate=useNavigate();
-
+    const [user, setUser] = useState(null); 
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser) {
+          setUser(storedUser);
+        }
+      }, []);
     const handleLogout = () => {
        
         localStorage.removeItem('access');
         localStorage.removeItem('refresh');
 
-        navigate('/login'); // Redirect to login page
+        navigate('/login');
     }
   return (
     <>
@@ -38,7 +44,7 @@ const Navbar = () => {
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-user"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 bg-gradient-to-br from-blue-900 to-violet-600  border border-red-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 bg-gradient-to-tb from-blue-400 to-sky-600  border border-red-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
                 <a
                   href="#"
@@ -101,12 +107,18 @@ const Navbar = () => {
                 style={{ top: "60px", right: "10px" }}
               >
                 <div className="px-4 py-3">
-                  <span className="block text-sm text-gray-900 dark:text-white">
-                    Bonnie Green
-                  </span>
-                  <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                    name@flowbite.com
-                  </span>
+                {user ? (
+                    <>
+                      <span className="block text-sm text-gray-900 dark:text-white">
+                        {user.name} {/* User's name */}
+                      </span>
+                      <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+                        {user.email} {/* User's email */}
+                      </span>
+                    </>
+                  ) : (
+                    <span className="block text-sm text-gray-500 dark:text-gray-400">Loading...</span>
+                  )}
                 </div>
                 <ul className="py-2">
                   <li>
@@ -114,7 +126,7 @@ const Navbar = () => {
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
-                      Create blogs
+                       <Link to="/blogcreate">Create Blog Post</Link> 
                     </a>
                   </li>
                   <li>
@@ -122,7 +134,7 @@ const Navbar = () => {
                       href="#"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
-                      Settings
+                      My blogs
                     </a>
                   </li>
                   <li>

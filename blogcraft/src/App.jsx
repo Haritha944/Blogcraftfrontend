@@ -5,6 +5,8 @@ import Register from './Component/Register';
 import Login from './Component/Login';
 import PrivateRoute from './utils/PrivateRoute';
 import Dashboard from './Component/Dashboard';
+import Createblog from "./Component/Createblog";
+import BlogUpdateDelete from "./Component/BlogUpdateDelete";
 
 
 
@@ -34,6 +36,15 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/blogcreate"
+          element={
+            <PrivateRoute>
+              <Createblog />
+            </PrivateRoute>
+          }
+        />
+        <Route path="/myblogs" element={<BlogUpdateDelete/>} />
         </Routes>
       </Router>
 

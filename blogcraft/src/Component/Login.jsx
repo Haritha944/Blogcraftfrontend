@@ -24,11 +24,11 @@ const Login = () => {
               password,
           });
 
-          // Save JWT tokens in localStorage
+         
           localStorage.setItem('access', response.data.access);
           localStorage.setItem('refresh', response.data.refresh);
 
-          // Redirect user after successful login (to home page or dashboard)
+          
           navigate('/dashboard');
       } catch (err) {
           // Handle error

@@ -35,6 +35,10 @@ const Register = () => {
       const { access, refresh, message } = response.data;
       localStorage.setItem("access_token", access);
       localStorage.setItem("refresh_token", refresh);
+      localStorage.setItem('user', JSON.stringify({
+        name: response.data.name,
+        email: response.data.email,
+      }));
       setMessage(message);
       setErrors({});
       reset(); // Reset the form after successful submission
