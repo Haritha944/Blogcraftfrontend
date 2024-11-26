@@ -25,8 +25,8 @@ const Dashboard = () => {
   return (
    
    
-    <div className="min-h-screen -mt-8 w-screen bg-gradient-to-t from-blue-400 to-sky-600 overflow-x-hidden">
-      
+    <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-t from-blue-400 to-sky-600 ">
+        <div className="h-full overflow-y-auto">
       <Navbar/>
     
       {/* Hero Section */}
@@ -68,7 +68,7 @@ const Dashboard = () => {
       </div>
 
       {/* Customize Button */}
-      
+      </div>
     </div>
 
   )

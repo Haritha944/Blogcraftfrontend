@@ -52,8 +52,8 @@ const Register = () => {
     
   return (
     <div
-    className="flex items-center justify-end min-h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: `url(${loginImage})`, height: '100vh' }}
+    className="fixed items-center justify-items-center top-0 left-0 w-screen h-screen bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${loginImage})`}}
   >
     <form
       className="p-8 rounded shadow-md w-full max-w-md"
@@ -183,7 +183,7 @@ const Register = () => {
       >
         Register
       </button>
-      <p className="mt-4 text-center text-gray-600">
+      <p className="mt-4 text-center text-gray-800">
         Already have an account? <a href="/login" className="text-indigo-600 hover:text-indigo-700">Login here</a>
       </p>
     </form>

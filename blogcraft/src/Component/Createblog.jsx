@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from './Sidebar';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -66,9 +67,16 @@ const Createblog = () => {
     }
     return validationErrors;
   };
+  const handleDashboardRedirect = () => {
+    navigate('/dashboard');
+  };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gradient-to-b from-sky-500 via-sky-600 to-sky-700 shadow-md rounded-lg mt-10">
+  
+    <div className='flex h-screen -mt-8 -mx-16'>
+      <Sidebar/>
+    <div className="flex-1 max-w-4xl mx-auto p-4 bg-gradient-to-b from-sky-500 via-sky-600 to-sky-700 shadow-md rounded-lg mt-10 ">
+     
       <h1 className="text-3xl font-semibold text-gray-800 mb-6">Create Blog</h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -116,6 +124,8 @@ const Createblog = () => {
           {isSubmitting ? 'Submitting...' : 'Create Post'}
         </button>
       </form>
+      
+    </div>
     </div>
   )
 }

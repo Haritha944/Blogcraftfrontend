@@ -40,7 +40,7 @@ const Login = () => {
       }
   };
   return (
-    <div className="flex min-h-screen items-center justify-center bg-cover bg-center bg-no-repeat"  style={{ backgroundImage: `url(${loginImage})` }}>
+    <div className="fixed items-center justify-items-center top-0 left-0 w-screen h-screen bg-cover bg-center bg-no-repeat"  style={{ backgroundImage: `url(${loginImage})` }}>
     {/* Left Side - Image */}
     <div className="hidden md:block w-1/2">
       
