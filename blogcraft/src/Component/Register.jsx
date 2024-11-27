@@ -52,14 +52,14 @@ const Register = () => {
     
   return (
     <div
-    className="fixed top-0 left-0 w-screen h-screen flex">
+    className="fixed top-0 left-0 w-screen h-screen flex overflow-y-auto">
       <div
-    className="w-1/2 h-[90vh] bg-cover bg-center bg-no-repeat"
+    className="w-full sm:w-1/2 h-[90vh] bg-cover bg-center bg-no-repeat"
     style={{ backgroundImage: `url(${loginImage})` }}
   ></div>
 
   
-  <div className="w-1/2 h-full flex items-center justify-center bg-white mt-4">
+  <div className="w-full sm:w-1/2 h-full flex items-center justify-center bg-white mt-4">
     <form
       className="p-8 rounded shadow-md w-full max-w-md"
       onSubmit={handleSubmit(onSubmit)}
@@ -95,7 +95,7 @@ const Register = () => {
         {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
       </div>
       </div>
-      <div className="flex space-x-4 mb-4">
+      <div className="flex flex-wrap space-x-4 mb-4">
       <div className="flex-1">
         <label className="block text-sm font-medium mb-1">Phone Number</label>
         <input
@@ -123,7 +123,7 @@ const Register = () => {
         {errors.profile_image && <p className="text-red-600 text-sm">{errors.profile_image.message}</p>}
       </div>
       </div>
-      <div className="flex space-x-4 mb-4">
+      <div className="flex flex-wrap space-x-4 mb-4">
       <div className="flex-1">
         <label className="block text-sm font-medium mb-1">Location</label>
         <input
@@ -157,7 +157,7 @@ const Register = () => {
       </div>
 
       {/* Password */}
-      <div className="flex space-x-4 mb-4">
+      <div className="flex flex-wrap space-x-4 mb-4">
       <div className="flex-1">
         <label className="block text-sm font-medium mb-1">Password</label>
         <input
