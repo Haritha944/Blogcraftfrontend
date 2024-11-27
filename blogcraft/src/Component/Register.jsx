@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 import {useForm} from "react-hook-form"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import loginImage from '../Images/blog.png'
 
 
@@ -189,7 +189,7 @@ const Register = () => {
         Register
       </button>
       <p className="mt-4 text-center text-gray-800">
-        Already have an account? <a href="/login" className="text-indigo-600 hover:text-indigo-700">Login here</a>
+        Already have an account? <Link to="/login" className="text-indigo-600 hover:text-indigo-700">Login here</Link>
       </p>
     </form>
   </div>
