@@ -151,7 +151,7 @@ const Register = () => {
         <label className="block text-sm font-medium mb-1">Social Links (JSON)</label>
         <textarea
           {...register('social_links', { required: 'Social links are required' })}
-          className="w-full border border-gray-300 p-2 rounded"
+          className="w-full border border-gray-300 p-1 rounded"
         />
         {errors.social_links && <p className="text-red-600 text-sm">{errors.social_links.message}</p>}
       </div>
