@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import loginImage from '../Images/freepik__expand__35657.png'
+import loginImage from '../Images/registerimage.png'
 
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -40,14 +40,14 @@ const Login = () => {
       }
   };
   return (
-    <div className="fixed items-center justify-items-center top-0 left-0 w-screen h-screen bg-cover bg-center bg-no-repeat"  style={{ backgroundImage: `url(${loginImage})` }}>
-    {/* Left Side - Image */}
-    <div className="hidden md:block w-1/2">
-      
-    </div>
+    <div className="fixed top-0 left-0 w-screen h-screen flex">
+   <div
+    className="w-1/2 h-[80vh] bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${loginImage})` }}
+  ></div>
 
     {/* Right Side - Login Form */}
-    <div className="w-full md:w-1/2 flex items-center justify-center p-8">
+    <div className="w-1/2 h-full flex items-center justify-center bg-white">
       <div className="w-full max-w-md">
         <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">

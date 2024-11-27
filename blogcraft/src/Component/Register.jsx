@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios';
 import {useForm} from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
-import loginImage from '../Images/freepik__expand__35657.png'
+import loginImage from '../Images/blog.png'
 
 
 
@@ -22,7 +22,7 @@ const Register = () => {
     // Append all form fields
     for (let key in formData) {
       if (key === "profile_image" && formData[key][0]) {
-        data.append(key, formData[key][0]); // Get the first file selected
+        data.append(key, formData[key][0]); 
       } else {
         data.append(key, formData[key]);
       }
@@ -41,7 +41,7 @@ const Register = () => {
       }));
       setMessage(message);
       setErrors({});
-      reset(); // Reset the form after successful submission
+      reset(); 
       navigate("/login");
     } catch (error) {
       if (error.response && error.response.data) {
@@ -52,9 +52,14 @@ const Register = () => {
     
   return (
     <div
-    className="fixed items-center justify-items-center top-0 left-0 w-screen h-screen bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: `url(${loginImage})`}}
-  >
+    className="fixed top-0 left-0 w-screen h-screen flex">
+      <div
+    className="w-1/2 h-[90vh] bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${loginImage})` }}
+  ></div>
+
+  
+  <div className="w-1/2 h-full flex items-center justify-center bg-white">
     <form
       className="p-8 rounded shadow-md w-full max-w-md"
       onSubmit={handleSubmit(onSubmit)}
@@ -187,6 +192,7 @@ const Register = () => {
         Already have an account? <a href="/login" className="text-indigo-600 hover:text-indigo-700">Login here</a>
       </p>
     </form>
+  </div>
   </div>
   )
 }

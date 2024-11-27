@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import Sidebar from './Sidebar'
 import axios from 'axios';
+import EditModal from './EditModal';
+import DeleteModal from './DeleteModal';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -8,6 +10,9 @@ const BlogUpdateDelete = () => {
 
   const [featuredPosts, setFeaturedPosts] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false); 
+  const [isEditModal,setEditModal]=useState(false);
+  const [isDeleteModal,setDeleteModal]=useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
 
 
   useEffect(() => {
@@ -30,6 +35,19 @@ const BlogUpdateDelete = () => {
   const handleToggleDescription = () => {
     setIsExpanded((prevState) => !prevState);
   };
+  const onEdit=(postId)=>{
+      const post=featuredPosts.find((p)=>p.id===postId);
+      setSelectedPost(post)
+      setEditModal(true)
+  }
+  const onDelete=(postId)=>{
+    const post=featuredPosts.find((p)=>p.id===postId);
+    setSelectedPost(post)
+    setDeleteModal(true)
+  }
+
+
+
   console.log("Response",setFeaturedPosts)
   return (
     <div className='flex h-screen -mt-7 -mx-16'>
@@ -74,6 +92,20 @@ const BlogUpdateDelete = () => {
        
       </div>
     </div>
+    <EditModal isOpen={isEditModal}
+    onClose={()=>setEditModal(false)}
+    post={selectedPost}
+    onUpdate={(updatedPost) => {
+      setFeaturedPosts((prevPosts) =>
+        prevPosts.map((p) => (p.id === updatedPost.id ? updatedPost : p))
+      );
+    }} />
+    <DeleteModal isOpen={isDeleteModal} 
+    post={selectedPost}
+    onClose={()=>setDeleteModal(false)}
+    onDelete={(postId)=>{
+      setFeaturedPosts((prevPosts) => prevPosts.filter((p) => p.id !== postId));
+    }}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState ,useEffect}  from 'react'
 import { useNavigate,Link } from 'react-router-dom';
-import loginImage from '../Images/Eventpro hub (1).png'
+import loginImage from '../Images/loginimage.png'
 
 
 const Navbar = () => {
@@ -25,19 +25,19 @@ const Navbar = () => {
     }
   return (
     <>
-      <nav className="bg-gradient-to-bt from-blue-700 to-violet-600  dark:bg-gray-900">
+      <nav className=" dark:bg-gray-900">
         <div className="max-w-screen-xl w-screen flex flex-wrap items-center justify-between mx-auto p-4">
           <a
             href="https://blogcraft.com/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="/api/placeholder/64/64"
-              className="h-16"
+              src={loginImage}
+              className="h-12"
               alt="Blogcraft Logo"
             />
-            <span className="self-center text-2xl font-sans font-semibold whitespace-nowrap text-white">
-              Blogcraft
+            <span className="self-center text-2xl font-sans font-semibold whitespace-nowrap bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              BLOGCRAFT
             </span>
           </a>
           <div
@@ -48,7 +48,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-blue-100 bg-transparent md:p-0"
+                  className="block py-2 px-3 text-gray-700 bg-transparent md:p-0"
                   aria-current="page"
                 >
                   Home
@@ -57,7 +57,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white rounded hover:text-blue-400 md:p-0"
+                  className="block py-2 px-3 text-gray-700 rounded hover:text-blue-400 md:p-0"
                 >
                   About
                 </a>
@@ -65,7 +65,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white rounded hover:text-blue-400 md:p-0"
+                  className="block py-2 px-3 text-gray-700 rounded hover:text-blue-400 md:p-0"
                 >
                   Categories
                 </a>
@@ -73,7 +73,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white rounded hover:text-blue-400 md:p-0"
+                  className="block py-2 px-3 text-gray-700 rounded hover:text-blue-400 md:p-0"
                 >
                   Popular
                 </a>
@@ -81,7 +81,7 @@ const Navbar = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white rounded hover:text-blue-400 md:p-0"
+                  className="block py-2 px-3 text-gray-700 rounded hover:text-blue-400 md:p-0"
                 >
                   Contact
                 </a>
@@ -91,15 +91,9 @@ const Navbar = () => {
           <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              className="flex text-md py-2 px-5 bg-fuchsia-600 text-white rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
               onClick={toggleDropdown}
-            >
-              <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="/api/placeholder/32/32"
-                alt="user photo"
-              />
+            >USER
             </button>
             {dropdownOpen && (
               <div
@@ -137,14 +131,7 @@ const Navbar = () => {
                       <Link to="/myblogs">My Blogs</Link> 
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Earnings
-                    </a>
-                  </li>
+                  
                   <li>
                     <a
                       href="#"
