@@ -59,7 +59,7 @@ const Register = () => {
   ></div>
 
   
-  <div className="w-1/2 h-full flex items-center justify-center bg-white">
+  <div className="w-1/2 h-full flex items-center justify-center bg-white mt-4">
     <form
       className="p-8 rounded shadow-md w-full max-w-md"
       onSubmit={handleSubmit(onSubmit)}
