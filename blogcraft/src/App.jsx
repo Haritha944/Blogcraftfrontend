@@ -11,23 +11,13 @@ import BlogUpdateDelete from "./Component/BlogUpdateDelete";
 
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
  
-  useEffect(() => {
-    const token = localStorage.getItem("access");
-    if (token) {
-      setIsAuthenticated(true); 
-    } else {
-      setIsAuthenticated(false); 
-    }
-  }, []); 
   return (
     <>
       <Router>
         <Routes>
         <Route path="/" element={<Register/>} />
-        <Route path="/login"element= {isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
+        <Route path="/login"element= {<Login />} />
         <Route
           path="/dashboard"
           element={
@@ -40,11 +30,11 @@ function App() {
           path="/blogcreate"
           element={
             <PrivateRoute>
-              <Createblog />
+              <Createblog/>
             </PrivateRoute>
           }
         />
-        <Route path="/myblogs" element={<BlogUpdateDelete/>} />
+        <Route path="/myblogs" element={<BlogUpdateDelete />} />
         </Routes>
       </Router>
 

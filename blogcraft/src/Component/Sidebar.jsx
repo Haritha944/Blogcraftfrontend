@@ -18,6 +18,7 @@ const Sidebar = () => {
           const response = await axios.get(`${API_BASE_URL}user/details`, {
             headers: { Authorization: `Bearer ${token}` }, 
           });
+          console.log(response.data)
           setUser(response.data); 
         } catch (error) {
           console.error('Error fetching user details:', error);
@@ -32,14 +33,15 @@ const Sidebar = () => {
       }, []);
       const handleLogout = () => {
         localStorage.removeItem('access'); 
+        
         navigate('/login'); 
       };
   return (
     <div className='-mx-7'>
       <div className="h-full w-full flex flex-col bg-white">
       {/* User Profile Section */}
-      <div className="p-8 border-b border-gray-200 flex ">
-        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-sky-500">
+      <div className="p-8 border-b border-gray-200">
+        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-sky-500">
           <img
             src={`http://127.0.0.1:8000${user.profile_image}`}
             alt={user.username || 'User Avatar'}
