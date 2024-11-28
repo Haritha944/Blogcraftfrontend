@@ -43,7 +43,7 @@ const Sidebar = () => {
       <div className="p-8 border-b border-gray-200">
         <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-sky-500">
           <img
-            src={`https://api.blogcraft.store/media/profile_images/${user.profile_image}`}
+            src={`https://api.blogcraft.store${user.profile_image}`}
             alt={user.username || 'User Avatar'}
             className="w-full h-full object-cover"
           />
