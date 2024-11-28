@@ -58,7 +58,7 @@ const BlogUpdateDelete = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredPosts.map((post) => (
             <div key={post.id} className="bg-gray-50 overflow-hidden shadow-lg rounded-lg flex flex-col p-4 group relative">
-              <img src={`https://api.blogcraft.store${post.image}`} alt={post.title} className="w-full h-80 object-cover" />
+              <img src={`https://api.blogcraft.store/media/posts/${post.image}`} alt={post.title} className="w-full h-80 object-cover" />
               <div className="flex-1 p-6 flex flex-col justify-between">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
                 <p className={`text-gray-600 mb-4 ${!isExpanded ? 'line-clamp-3' : ''}`}>
