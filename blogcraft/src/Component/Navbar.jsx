@@ -1,7 +1,7 @@
 import React, { useState ,useEffect}  from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 import loginImage from '../Images/loginimage.png'
-
+import axios from 'axios';
 
 const Navbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,12 +10,24 @@ const Navbar = () => {
     }
     const navigate=useNavigate();
     const [user, setUser] = useState(null); 
-    useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser) {
-          setUser(storedUser);
+    const fetchUserDetails = async () => {
+      try {
+        const token = localStorage.getItem('access'); 
+        const response = await axios.get(`${API_BASE_URL}user/details`, {
+          headers: { Authorization: `Bearer ${token}` }, 
+        });
+        console.log(response.data)
+        setUser(response.data); 
+      } catch (error) {
+        console.error('Error fetching user details:', error);
+        if (error.response && error.response.status === 401) {
+          navigate('/login'); 
         }
-      }, []);
+      }
+    };
+    useEffect(() => {
+      fetchUserDetails(); 
+    }, []);
     const handleLogout = () => {
        
         localStorage.removeItem('access');
@@ -104,7 +116,7 @@ const Navbar = () => {
                 {user ? (
                     <>
                       <span className="block text-sm text-gray-900 dark:text-white">
-                        {user.name} {/* User's name */}
+                        {user.username} {/* User's name */}
                       </span>
                       <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
                         {user.email} {/* User's email */}
