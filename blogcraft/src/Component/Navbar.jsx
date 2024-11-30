@@ -3,6 +3,8 @@ import { useNavigate,Link } from 'react-router-dom';
 import loginImage from '../Images/loginimage.png'
 import axios from 'axios';
 
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const Navbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggleDropdown =()=>{
