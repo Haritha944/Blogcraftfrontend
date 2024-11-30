@@ -16,7 +16,7 @@ const Navbar = () => {
         const response = await axios.get(`${API_BASE_URL}user/details`, {
           headers: { Authorization: `Bearer ${token}` }, 
         });
-        console.log(response.data)
+        console.log("user",response.data)
         setUser(response.data); 
       } catch (error) {
         console.error('Error fetching user details:', error);
