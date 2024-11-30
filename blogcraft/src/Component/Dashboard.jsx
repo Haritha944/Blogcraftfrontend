@@ -94,7 +94,7 @@ const Dashboard = () => {
          <div className="flex-1 p-6 flex flex-col justify-between">
            <h3 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
            <h3 className="text-md font-bold text-gray-900 mt-2">By:  {post.user.username}</h3>
-           <p className={`text-gray-600 mb-4 ${!isExpanded ? 'line-clamp-3' : ''}`}>
+           <p className="text-gray-600 mb-4 line-clamp-3">
           {post.content}
          </p>
         
