@@ -9,15 +9,15 @@ const Navbar = () => {
         setDropdownOpen(!dropdownOpen);
     }
     const navigate=useNavigate();
-    const [user, setUser] = useState(null); 
+    const [myuser, setmyUser] = useState(null); 
     const fetchUserDetails = async () => {
       try {
         const token = localStorage.getItem('access'); 
         const response = await axios.get(`${API_BASE_URL}user/details`, {
           headers: { Authorization: `Bearer ${token}` }, 
         });
-        console.log("user",response.data)
-        setUser(response.data); 
+        console.log("User Data",response.data)
+        setmyUser(response.data); 
       } catch (error) {
         console.error('Error fetching user details:', error);
         if (error.response && error.response.status === 401) {
@@ -32,7 +32,7 @@ const Navbar = () => {
        
         localStorage.removeItem('access');
         localStorage.removeItem('refresh');
-        setUser(null);
+        setmyUser(null);
         navigate('/login');
     }
   return (
@@ -113,13 +113,13 @@ const Navbar = () => {
                 style={{ top: "60px", right: "10px" }}
               >
                 <div className="px-4 py-3">
-                {user ? (
+                {myuser ? (
                     <>
                       <span className="block text-sm text-gray-900 dark:text-white">
-                        {user.username} {/* User's name */}
+                        {myuser.username} {/* User's name */}
                       </span>
                       <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                        {user.email} {/* User's email */}
+                        {myuser.email} {/* User's email */}
                       </span>
                     </>
                   ) : (
