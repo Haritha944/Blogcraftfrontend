@@ -20,7 +20,7 @@ const Navbar = () => {
        
         localStorage.removeItem('access');
         localStorage.removeItem('refresh');
-
+        setUser(null);
         navigate('/login');
     }
   return (
