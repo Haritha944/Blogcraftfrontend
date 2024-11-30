@@ -87,11 +87,11 @@ const Dashboard = () => {
        
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Featured Posts</h2>
-      <div className="flex flex-wrap gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {featuredPosts.map((post) => (
-         <div key={post.id} className="flex flex-col w-full sm:w-1/2 lg:w-1/3 bg-gray-50 overflow-hidden shadow-lg rounded-lg p-4">
+         <div key={post.id} className="bg-gray-50 overflow-hidden shadow-lg rounded-lg flex flex-col p-4 group relative">
          <img src={`https://api.blogcraft.store${post.image}`} alt={post.title} className="w-full h-80 object-cover" />
-         <div className="flex-1">
+         <div className="flex-1 p-6 flex flex-col justify-between">
            <h3 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
            <h3 className="text-md font-bold text-gray-900 mt-2">By:  {post.user.username}</h3>
            <p className="text-gray-600 mb-4 line-clamp-3">
