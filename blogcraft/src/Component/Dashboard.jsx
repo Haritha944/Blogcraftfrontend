@@ -25,7 +25,7 @@ const Dashboard = () => {
         }
       ];
       const[featuredPosts,setFeaturedPosts]=useState([]);
-      const [isExpanded, setIsExpanded] = useState(false); 
+     
 
   useEffect (()=>{
     const fetchPosts = async() =>{
@@ -44,10 +44,7 @@ const Dashboard = () => {
     fetchPosts();
   },[]);
 
-  const handleToggleDescription = () => {
-    setIsExpanded((prevState) => !prevState);
-  };
-
+  
   return (
    
   <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100">
@@ -96,16 +93,11 @@ const Dashboard = () => {
          <img src={`https://api.blogcraft.store${post.image}`} alt={post.title} className="w-full h-80 object-cover" />
          <div className="flex-1 p-6 flex flex-col justify-between">
            <h3 className="text-xl font-bold text-gray-900 mb-2">{post.title}</h3>
-           <h3 className="text-md font-bold text-gray-900 mt-2">Author:  {post.user.username}</h3>
+           <h3 className="text-md font-bold text-gray-900 mt-2">By:  {post.user.username}</h3>
            <p className={`text-gray-600 mb-4 ${!isExpanded ? 'line-clamp-3' : ''}`}>
           {post.content}
          </p>
-         <button 
-          onClick={handleToggleDescription}
-          className="text-pink-500 hover:text-pink-700 font-medium mt-auto"
-        >
-          {isExpanded ? 'Read Less' : 'Read More'}
-        </button>
+        
          </div>
          </div>
       ))}
