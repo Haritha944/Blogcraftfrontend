@@ -8,6 +8,7 @@ import Dashboard from './Component/Dashboard';
 import Createblog from "./Component/Createblog";
 import BlogUpdateDelete from "./Component/BlogUpdateDelete";
 import Navbar from "./Component/Navbar";
+import BlogDetailComponent from "./Component/BlogDetailComponent";
 
 
 
@@ -36,6 +37,7 @@ function App() {
           }
         />
         <Route path="/myblogs" element={<BlogUpdateDelete />} />
+        <Route path="postdetail/:id" element={<BlogDetailComponent />} />
         </Routes>
       </Router>
 
