@@ -63,7 +63,7 @@ const BlogDetailComponent = () => {
     <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100">
       <div className="h-full overflow-y-auto">
         <Navbar/>
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-10">
       <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title || 'Untitled Post'}</h1>
       <p className="text-md text-gray-600 mb-6">By: {post.user.username}</p>
       <img
