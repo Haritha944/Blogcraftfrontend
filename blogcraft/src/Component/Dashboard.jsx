@@ -46,7 +46,7 @@ const Dashboard = () => {
     fetchPosts();
   },[]);
    const handlenavigate=(id)=>{
-    navigate(`postdetail/${id}`)
+    navigate(`/postdetail/${id}`)
 
    }
   

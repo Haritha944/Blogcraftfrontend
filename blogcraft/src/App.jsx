@@ -37,7 +37,7 @@ function App() {
           }
         />
         <Route path="/myblogs" element={<BlogUpdateDelete />} />
-        <Route path="postdetail/:id" element={<BlogDetailComponent />} />
+        <Route path="/postdetail/:id" element={<BlogDetailComponent />} />
         </Routes>
       </Router>
 
