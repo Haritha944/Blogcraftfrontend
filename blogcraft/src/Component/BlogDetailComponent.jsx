@@ -17,7 +17,7 @@ const BlogDetailComponent = () => {
     useEffect(()=>{
       const fetchpost=async()=>{
         try{
-          const response=await axios.get(`${API_BASE_URL}/posts/${id}`,{
+          const response=await axios.get(`${API_BASE_URL}posts/${id}`,{
             headers:{
               Authorization:`Bearer ${localStorage.getItem('access')}`,
               'Cache-Control': 'no-cache',
