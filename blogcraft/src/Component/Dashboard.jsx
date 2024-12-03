@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
+import { useNavigate } from 'react-router-dom'
 import loginImage from '../Images/bitcoin.jpg'
 import login from '../Images/ai.jpg'
 import login1 from '../Images/vr.jpg'
@@ -25,6 +26,7 @@ const Dashboard = () => {
         }
       ];
       const[featuredPosts,setFeaturedPosts]=useState([]);
+      const navigate=useNavigate()
      
 
   useEffect (()=>{
