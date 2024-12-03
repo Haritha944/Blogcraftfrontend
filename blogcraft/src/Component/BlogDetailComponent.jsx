@@ -22,6 +22,7 @@ const BlogDetailComponent = () => {
               'Cache-Control': 'no-cache',
             }
           });
+          console.log("Response",response.data)
           setPost(response.data)
 
         }catch (error) {
