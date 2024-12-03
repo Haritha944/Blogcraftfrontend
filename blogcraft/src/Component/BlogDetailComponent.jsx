@@ -33,6 +33,32 @@ const BlogDetailComponent = () => {
       }
       fetchpost();
     },[id]);
+    if (loading) {
+      return (
+          <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100 flex items-center justify-center">
+              <p>Loading...</p>
+          </div>
+      );
+  }
+
+  
+  if (error) {
+      return (
+          <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100 flex items-center justify-center">
+              <p className="text-red-500">Error: {error}</p>
+          </div>
+      );
+  }
+
+  
+  if (!post) {
+      return (
+          <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100 flex items-center justify-center">
+              <p>No post found</p>
+          </div>
+      );
+  }
+
   return (
     <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100">
       <div className="h-full overflow-y-auto">
