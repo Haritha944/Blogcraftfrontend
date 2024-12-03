@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
 import Navbar from './Navbar';
+import axios from 'axios';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
