@@ -20,7 +20,6 @@ const BlogDetailComponent = () => {
           const response=await axios.get(`${API_BASE_URL}posts/${id}`,{
             headers:{
               Authorization:`Bearer ${localStorage.getItem('access')}`,
-              'Cache-Control': 'no-cache',
             }
           });
           console.log("Response",response.data)
