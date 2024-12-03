@@ -71,7 +71,7 @@ const BlogDetailComponent = () => {
         alt={post.title|| 'Untitled Post'}
         className="w-full h-auto mb-6"
       />
-      <p className="text-gray-800 leading-7">{post.content}</p>
+      <p className="text-gray-800 text-left">{post.content}</p>
     </div>
     </div>
     </div>
