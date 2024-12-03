@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
+import Navbar from './Navbar';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -26,6 +27,9 @@ const BlogDetailComponent = () => {
       fetchpost();
     },[id]);
   return (
+    <div className="fixed top-0 left-0 w-screen h-screen bg-gray-100">
+      <div className="h-full overflow-y-auto">
+        <Navbar/>
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-4">{post.title}</h1>
       <p className="text-md text-gray-600 mb-6">By: {post.user.username}</p>
@@ -35,6 +39,8 @@ const BlogDetailComponent = () => {
         className="w-full h-auto mb-6"
       />
       <p className="text-gray-800 leading-7">{post.content}</p>
+    </div>
+    </div>
     </div>
   )
 }
